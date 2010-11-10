@@ -1,0 +1,12 @@
+# /etc/conf.d/startx
+
+# Set to the user you want auto-logged-in.
+# Remember, this is terribly insecure.
+# Only use this if you know what you're doing.
+X11USER="username"
+
+# Set this to your homedir. Probably /home/youruser.
+X11HOME="/home/username"
+
+# Pid file location. Probably don't need to touch this.
+PIDFILE="/var/run/startx.pid"

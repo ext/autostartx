@@ -1,17 +1,18 @@
 #!/sbin/runscript
 
 depend() {
-   need xfs
+    need local
+    use xfs
 }
 
 start() {
-   ebegin "Starting autostartx"   
-   start-stop-daemon --start --background --quiet --pidfile /var/run/autostartx.pid --make-pidfile --exec /sbin/autostartx -- @USER
-   eend $?
+    ebegin "Starting X11 as ${X11USER}"
+    start-stop-daemon --start --background --quiet --pidfile ${PIDFILE} --make-pidfile --chdir ${X11HOME} --exec /sbin/autostartx -- ${X11USER}
+    eend $?
 }
 
 stop() {
-   ebegin "Stopping autostartx"
-   start-stop-daemon --stop --pidfile /var/run/autostartx.pid
-   eend $?
+    ebegin "Stopping X11 as ${X11USER}"
+    start-stop-daemon --stop --quiet --oknodo --user ${X11USER} --pidfile ${PIDFILE} 
+    eend $?
 }
