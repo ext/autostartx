@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 	}
 
 	chdir(userinfo->pw_dir);
-	execlp("startx", "startx", 0);
+	execlp("startx", "startx", NULL);
    
 	return 0;
 }
