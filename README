@@ -1,0 +1,3 @@
+Autostart X
+
+This code comes from http://forums.gentoo.org/viewtopic.php?t=268192 but I've put it in this repository for easier access and added an ebuild for easier installation (also available in ext-devlibs overlay)

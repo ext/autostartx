@@ -1,0 +1,5 @@
+#!/bin/sh
+# this script sets system env vars
+
+test -f /etc/profile && source /etc/profile
+exec autostartx-bin "$@"

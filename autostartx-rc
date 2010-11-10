@@ -1,0 +1,17 @@
+#!/sbin/runscript
+
+depend() {
+   need xfs
+}
+
+start() {
+   ebegin "Starting autostartx"   
+   start-stop-daemon --start --background --quiet --pidfile /var/run/autostartx.pid --make-pidfile --exec /sbin/autostartx -- @USER
+   eend $?
+}
+
+stop() {
+   ebegin "Stopping autostartx"
+   start-stop-daemon --stop --pidfile /var/run/autostartx.pid
+   eend $?
+}
